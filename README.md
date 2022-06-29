@@ -1,3 +1,6 @@
+<p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/README.GIF"></p>
+
+
 # Using The Model
 The model employs three classes which are deck, dealer and player.
 
