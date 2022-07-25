@@ -6,7 +6,7 @@ The model employs three classes which are deck, dealer and player.
 
 ### Deck 
 A deck object is initialised as:
-```python
+```R
 test_deck = deck(n) #n is the number of full decks making up the deck
 ```
 The deck is shuffled when initialized. The deck can has two methods which allow for specified cards to be removed and for a random card to be drawn and returned:
