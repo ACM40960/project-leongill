@@ -1,4 +1,4 @@
-<p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/README.GIF"></p>
+<p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/Figures/readme_gif.GIF"></p>
 
 
 # Installing the Package
@@ -15,13 +15,11 @@ https://www.rstudio.com/products/rstudio/download/#download
 You now have a fully functioning R IDE. 
 
 ## Preparing your laptop
+If you are using a laptop, click the battery icon in the bottom right and set the slider to the rightmost option as shonw in the image below. This increases processing speed dramatically. Failure to do this will result in 50% longer computation times if left on the standard power setting. On Mac, simply plug your charger in to achieve the same effect.
 <p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/Figures/Readme_perf_figure.png"></p>
 
 
-
-
-
-
+### Using R
 Next, intall the relevent packages by pasting the following lines of text into the R console and hitting `enter`:
 ```R
 install.packages("hash")
