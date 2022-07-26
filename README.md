@@ -1,5 +1,6 @@
 <p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/README.GIF"></p>
 
+
 # Installing the Package
 To install the package, first download R 4.2.0 at the following address and follow the prompts to complete the installation:
 ```text
@@ -11,7 +12,15 @@ Next, download the R-Studio IDE and follow the promts to complete the installati
 https://www.rstudio.com/products/rstudio/download/#download
 ```
 
-You now have a fully functioning R IDE. Next, intall the relevent packages by pasting the following lines of text into the R console and hitting `enter`:
+You now have a fully functioning R IDE. 
+
+## Preparing your laptop
+
+
+
+
+
+Next, intall the relevent packages by pasting the following lines of text into the R console and hitting `enter`:
 ```R
 install.packages("hash")
 install.packages("operators")
