@@ -33,12 +33,16 @@ library(devtools)
 install_github("ACM40960/project-leongill/PACKAGENAMEHERE")
 ```
 
-With the package installed, you can now download the Blackjack.RMD file from the project GitHub page which acts as a complete exhibit of the packages functionality. The first cell loads in the packages which you previously installed making their functions usable to you. 
+With the package installed, you can now download the Blackjack.RMD file from the project GitHub page which acts as a complete exhibit of the packages functionality. The first cell loads in the packages which you previously installed making their functions usable to you. Some notes on the functionality of the packagae. The package when possible runs code in parallel, running code quickly but in all cases a single core option also exists. Crucially, you cannot pass variables to the parallel version. The arguments must be explicit.
+
+
+
+
 
 The first function of interest is strategy. This function takes as argument `number_of_decks`, `number_of_simulations`, `include_double_down ` and `include_surrender`. `number_of_decks` is the number of decks in the game for which you want to obtain a strategy. `number_of_simulations` is the number of Monte Carlo simulations used on each position to approximate the win rate for sticking on that position. The reamining arguments are whether to include a particular rule in the analysis of the data where the default is that surrender and double down are not permitted. For example, 2 deck blackjack with $10^3$ simulations per position with doubling down allowed and surrendering prohibited is obtained by:
 
 ```R
-strat = strategy(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = T)
+strat = full_strategy_par(number_of_decks = 1, blackjack_return = 1.5,  number_of_simulations = 10^3, include_double_down  = T)
 ```
 
 The output is a hashmap where each key is a position, a combination of player hand a dealer visible card. The associated value is the move which maximizes player return given the inputted rule set. Values of 0,1,2,3 and 4 correspond to stick, hit, double down, surrender, split respectively.
