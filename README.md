@@ -2,9 +2,9 @@
 
 
 # Installing the Package
-To install the package, first download R 4.2.0 at the following address and follow the prompts to complete the installation:
+To install the package, first download R 4.2.1 at the following address and follow the prompts to complete the installation:
 ```text
-https://cran.r-project.org/src/base/R-4/
+https://cran.r-project.org/bin/windows/base/
 ```
 Next, download the R-Studio IDE and follow the promts to complete the installation:
 
