@@ -28,9 +28,10 @@ install.packages("hash")
 install.packages("Rcpp")
 ```
 
-You are now ready to install the package. Fro, this GitHub repository, download the Blackjackr.zip file. Unzip the file with `Right-click` + `unzip all`. Open this folder and then open the blackjackr package folder. From here, open the blackjackr R project object which will take you to R-Studio. On the top of the screen, hit `Build` -> `Install package`. Wait until this process completes. Close R and return to the Blackjackr folder. 
+You are now ready to install the package. Download the Blackjackr.zip file from this GitHub repository. Unzip the file with `Right-click` + `unzip all`. Open this folder and then open the "blackjackr package" folder. From here, open the blackjackr R project object which will take you to R-Studio. On the top of the screen, hit `Build` -> `Install package`. Wait until this process completes. Close R and return to the Blackjackr folder. 
+# Using the Package
 
-Open Blackjack_Investigations.RMD which acts as a complete exhibition of the package's functionality. When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. This button is shown below:
+After closing R, open Blackjack_Investigations.RMD which acts as a complete exhibition of the package's functionality(Closing R ensures that you use the correct working directory). When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. This button is shown below:
 <p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/Figures/install_packages.png"></p>
 
 You are now able to use all the functionality of the package. First, type the following line into the console which lists all of the functions in the package:
