@@ -2,6 +2,11 @@
 
 
 # Installing the Package
+## Preparation
+
+If you are using a laptop, click the battery icon in the bottom right and set the slider to the rightmost option as shown in the image below. This increases processing speed dramatically. Failure to do this will result in 50% longer computation times if left on the standard power setting. On Mac, simply plug the charger in to achieve the same effect.
+<p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/Figures/Readme_perf_figure.png"></p>
+
 To install the package, first download R 4.2.1 at the following address and follow the prompts to complete the installation:
 ```text
 https://cran.r-project.org/bin/windows/base/
@@ -17,18 +22,15 @@ You now have a fully functioning R IDE. Lastly, install Rtools from the followin
 https://www.rstudio.com/products/rstudio/download/#download
 ```
 
-## Preparing your laptop
-If you are using a laptop, click the battery icon in the bottom right and set the slider to the rightmost option as shown in the image below. This increases processing speed dramatically. Failure to do this will result in 50% longer computation times if left on the standard power setting. On Mac, simply plug the charger in to achieve the same effect.
-<p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/Figures/Readme_perf_figure.png"></p>
-
-
-### Using R
-Next, install the relevent packages which are requireed for the package by pasting the following lines of text into the R console and hitting `enter`:
+You should now open R-Studio. Install the following packages which are required for the use of my package. This is done by pasting the following lines of text into the R console and hitting `enter`:
 ```R
 install.packages("hash")
 install.packages("Rcpp")
 ```
-With the package installed, you can now download the Blackjack_Investigations.RMD file from the project GitHub page which acts as a complete exhibit of the package's functionality. When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. 
+
+You are now ready to install the package. Fro, this GitHub repository, download the Blackjackr.zip file. Unzip the file with `Right-click` + `unzip all`. Open this folder and then open the blackjackr package folder. From here, open the blackjackr R project object which will take you to R-Studio. On the top of the screen, hit `Build` -> `Install package`. Wait until this process completes. Close R and return to the Blackjackr folder. 
+
+Open Blackjack_Investigations.RMD which acts as a complete exhibition of the package's functionality. When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. 
 
 You are now able to use all the functionality of the package. First, type the following line into the console which lists all of the functions in the package:
 ```R
