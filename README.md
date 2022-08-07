@@ -12,7 +12,10 @@ Next, download the R-Studio IDE and follow the promts to complete the installati
 https://www.rstudio.com/products/rstudio/download/#download
 ```
 
-You now have a fully functioning R IDE. 
+You now have a fully functioning R IDE. Lastly, install Rtools from the following link
+```text
+https://www.rstudio.com/products/rstudio/download/#download
+```
 
 ## Preparing your laptop
 If you are using a laptop, click the battery icon in the bottom right and set the slider to the rightmost option as shown in the image below. This increases processing speed dramatically. Failure to do this will result in 50% longer computation times if left on the standard power setting. On Mac, simply plug the charger in to achieve the same effect.
@@ -20,19 +23,11 @@ If you are using a laptop, click the battery icon in the bottom right and set th
 
 
 ### Using R
-Next, intall the relevent packages by pasting the following lines of text into the R console and hitting `enter`:
+Next, install the relevent packages which are requireed for the package by pasting the following lines of text into the R console and hitting `enter`:
 ```R
 install.packages("hash")
-install.packages("operators")
 install.packages("devtools")
 ```
-
-The first two packages are used in the functions of my package while the latter package is used to download the package from github. Download my package directly from GitHub by pasting the following lines into your console:
-```R
-library(devtools)
-install_github("ACM40960/project-leongill/PACKAGENAMEHERE")
-```
-
 With the package installed, you can now download the Blackjack.RMD file from the project GitHub page which acts as a complete exhibit of the packages functionality. The first cell loads in the packages which you previously installed making their functions usable to you. Some notes on the functionality of the packagae. The package when possible runs code in parallel, running code quickly but in all cases a single core option also exists. Crucially, you cannot pass variables to the parallel version. The arguments must be explicit.
 
 
