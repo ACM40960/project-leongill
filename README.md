@@ -19,7 +19,7 @@ https://www.rstudio.com/products/rstudio/download/#download
 
 You now have a fully functioning R IDE. Lastly, install Rtools from the following link
 ```text
-https://www.rstudio.com/products/rstudio/download/#download
+https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html
 ```
 
 You should now open R-Studio. Install the following packages which are required for the use of my package. This is done by pasting the following lines of text into the R console and hitting `enter`:
