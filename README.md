@@ -63,7 +63,7 @@ The output is a hash map where each key is a position. The associated value is t
 100000000110 : 1
 ```
 
-The next function called play_games_split_par() plays games with the above strategy and is capable of playing games where splitting and all other rules are enabled. Enabling splitting requires an extensive framework so when splitting is disabled in your strategy (done with the `include_split = 0` argument), use play_games_par() instead as it is twice as fast. An example is shown below where the output is the players average return over `number_of_simulations` games:
+The next function called play_games_split_par() plays games with the above strategy and is capable of playing games where splitting and all other rules are enabled or disabled. Enabling splitting requires an extensive framework so when splitting is disabled in your strategy (done with the `include_split = 0` argument), use play_games_par() instead as it is twice as fast. An example is shown below where the output is the player's average return over `number_of_simulations` games:
 ```R
 return_per_game = play_games_split_par(number_of_simulations = 10^8, number_of_decks = 1, include_split = 4, strategy = strat)
 ```
@@ -72,10 +72,9 @@ return_per_game = play_games_split_par(number_of_simulations = 10^8, number_of_d
  -0.01702554
 ```
 
-
 The same strategy and game simulation without splitting is done as follows:
 ```R
 strat = full_strategy_par(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = F, include_surrender = T, include_split = 0)
 return_per_game = play_games_par(number_of_simulations = 10^8, number_of_decks = 1, strategy = strat)
 ```
-Most other function are derivatives of or are used extensively within the functions above. To see how the remaining functions are used, go through the Blackjack_Investigations.RMD which includes some interesing applications of the package as well as runtimes for each function. It is essential that you close R before opening this file as it uses files in the same working directory as Blackjack_Investigations.RMD. If you open Blackjack_Investigations.RMD after installing the package without closing R-Studio between these actions, you will be in the package's working directory which will incur errors for some functions. The source code for R and C++ functions is in Blackjackr package in the folders R and src respectively.
+Most other function are derivatives of or are used extensively within the functions above. To see how the remaining functions are used, go through the Blackjack_Investigations.RMD which includes some interesing applications of the package as well as runtimes for each function. It is essential that you close R before opening this file as it uses files in the same working directory as Blackjack_Investigations.RMD. If you open Blackjack_Investigations.RMD after installing the package without closing R-Studio between these actions, you will be in the package's working directory which will incur errors for some functions. The source code for the R and C++ functions is in Blackjackr package in the folders R and src respectively.
