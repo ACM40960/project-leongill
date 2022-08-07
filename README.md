@@ -46,7 +46,7 @@ I recommend going through the Blackjack_Investigations.RMD file sequentially to 
 strat = full_strategy_par(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = F, include_surrender = T, include_split = 4)
 ```
 
-The output is a hash map where each key is a position. The associated value is the move which maximizes player return given the inputted ruleset. Values of 0, 1, 2, 3 and 4 correspond to stick, hit, double down, surrender and split respectively. An exmaple of the first few terms of this output is shown below:
+The output is a hash map where each key is a position. The associated value is the move which maximizes player return given the inputted ruleset. Values of 0, 1, 2, 3 and 4 correspond to stick, hit, double down, surrender and split, respectively. An example of the first 11 terms of this output is shown below:
 
 #### Output
 ```text
