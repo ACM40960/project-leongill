@@ -45,12 +45,33 @@ While I recommend going through the .RMD file sequentially to learn about the pa
 strat = full_strategy_par(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = F, include_surrender = T, include_split = 4)
 ```
 
-The output is a hashmap where each key is a position. The associated value is the move which maximizes player return given the inputted rule set. Values of 0,1,2,3 and 4 correspond to stick, hit, double down, surrender, split respectively.
+The output is a hashmap where each key is a position. The associated value is the move which maximizes player return given the inputted rule set. Values of 0,1,2,3 and 4 correspond to stick, hit, double down, surrender, split respectively. An exmaple of the first few terms of this output is shown below:
+
+#### Output
+```text
+100000000002 : 1
+100000000003 : 1
+100000000011 : 0
+100000000012 : 1
+100000000013 : 1
+100000000020 : 0
+100000000021 : 0
+100000000101 : 1
+100000000102 : 1
+100000000103 : 1
+100000000110 : 1
+```
 
 The next function called play_games_split_par() plays games with the above strategy and is capable of playing games where splitting and all other rules are enabled. Enabling splitting requires an extensive framework so when splitting is disabled in your strategy (done with the `include_split = 0` argument), use play_games_par() instead as it is twice as fast. An example is shown below where the output is the players average return over `number_of_simulations` games:
 ```R
 return_per_game = play_games_split_par(number_of_simulations = 10^8, number_of_decks = 1, include_split = 4, strategy = strat)
 ```
+#### Output
+```text
+ -0.01702554
+```
+
+
 The same strategy and game simulation without splitting is done as follows:
 ```R
 strat = full_strategy_par(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = F, include_surrender = T, include_split = 0)
