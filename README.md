@@ -30,27 +30,29 @@ install.packages("Rcpp")
 
 You are now ready to install the package. Fro, this GitHub repository, download the Blackjackr.zip file. Unzip the file with `Right-click` + `unzip all`. Open this folder and then open the blackjackr package folder. From here, open the blackjackr R project object which will take you to R-Studio. On the top of the screen, hit `Build` -> `Install package`. Wait until this process completes. Close R and return to the Blackjackr folder. 
 
-Open Blackjack_Investigations.RMD which acts as a complete exhibition of the package's functionality. When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. 
+Open Blackjack_Investigations.RMD which acts as a complete exhibition of the package's functionality. When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. This button is shown below:
+<p align="left"><img width=50% src="https://github.com/ACM40960/project-leongill/blob/main/Figures/install_packages.png"></p>
 
 You are now able to use all the functionality of the package. First, type the following line into the console which lists all of the functions in the package:
 ```R
 lsf.str("package:blackjackr")   
 ```
-To learn more about a function, type `?` followed by a function name to read extensive documentation for each included function. All simulation functions use parallel computing to speed up the simulation process. If you wish to use only a single core to maintain your computer's performance, pass the `cores = 1` argument to the relevant functions. 
+To learn more about a function, type `?` followed by a function name to read extensive documentation for each included function. All simulation functions use parallel computing to speed up the simulation process. If you wish to use only a single core to maintain your computer's performance, pass the `cores = 1` argument to the relevant function which will result in a roughly 75% performance decrease on a 4-core machine.
 
-While I recommend going through the .RMD file sequentially to learn about the package, I will now describe how to use the packages main functions. The first function of interest is strategy. This function takes as argument `number_of_decks`, `number_of_simulations`, `include_double_down ` and `include_surrender`. `number_of_decks` is the number of decks in the game for which you want to obtain a strategy. `number_of_simulations` is the number of Monte Carlo simulations used on each position to approximate the win rate for sticking on that position. The reamining arguments are whether to include a particular rule in the analysis of the data where the default is that surrender and double down are not permitted. For example, 2 deck blackjack with $10^3$ simulations per position with doubling down allowed and surrendering prohibited is obtained by:
-
-```R
-strat = full_strategy_par(number_of_decks = 1, blackjack_return = 1.5,  number_of_simulations = 10^3, include_double_down  = T)
-```
-
-The output is a hashmap where each key is a position, a combination of player hand a dealer visible card. The associated value is the move which maximizes player return given the inputted rule set. Values of 0,1,2,3 and 4 correspond to stick, hit, double down, surrender, split respectively.
-
-The second main function is `play_games()` which simulates games using an chosen startegy. `number_of_decks` is again the number of decks in the game in which you want to employ the strategy. `count` is the number of simulated games used to evaluate the strategy. The strategy is then inputted in two parts. `index` is a list of all possible positions. `optimal` is a list of the associated moves. From the output of `strategy`, the `index` list is obtained by the `names()` function while the `optimal` list is obtained by the `values()` function.
+While I recommend going through the .RMD file sequentially to learn about the package, I will now describe how to use the packages main functions. The first function of interest is full_strategy_par(). The arguments can be seen using ?full_strategy_par. This function generates an optimal strategy using Monte Carlo simulation. The "par" suffix implies simulation are done in parallel by default. The number of simulations is set using the `number_of_simulations` argument. Other arguments allow the ruleset to be changed in thousands of possible combinations using the `include_double_down` and `include_surrender` and `number_of_decks` arguments with even more options available. All arguments have defaults so you can test the function with no arguments. An example strategy with surrender enabled, doubling down disabled, splitting allowed up to four hands with one deck using 1000 simulations is:
 
 ```R
-return_per_game = play_games(count = 10^6,  index = names(strat), optimal = values(strat))
+strat = full_strategy_par(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = F, include_surrender = T, include_split = 4)
 ```
 
-The output of `play_games()` is the return per game achieved over the `count` games. 
+The output is a hashmap where each key is a position. The associated value is the move which maximizes player return given the inputted rule set. Values of 0,1,2,3 and 4 correspond to stick, hit, double down, surrender, split respectively.
 
+The next function called play_games_split_par() plays games with the above strategy and is capable of playing games where splitting and all other rules are enabled. Enabling splitting requires an extensive framework so when splitting is disabled in your strategy (done with the `include_split = 0` argument), use play_games_par() instead as it is twice as fast. An example is shown below where the output is the players average return over `number_of_simulations` games:
+```R
+return_per_game = play_games_split_par(number_of_simulations = 10^8, number_of_decks = 1, include_split = 4, strategy = strat)
+```
+The same strategy and game simulation without splitting is done as follows:
+```R
+strat = full_strategy_par(number_of_decks = 1, number_of_simulations = 10^3, include_double_down  = F, include_surrender = T, include_split = 0)
+return_per_game = play_games_par(number_of_simulations = 10^8, number_of_decks = 1, strategy = strat)
+```
