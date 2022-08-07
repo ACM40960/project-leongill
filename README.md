@@ -26,15 +26,17 @@ If you are using a laptop, click the battery icon in the bottom right and set th
 Next, install the relevent packages which are requireed for the package by pasting the following lines of text into the R console and hitting `enter`:
 ```R
 install.packages("hash")
-install.packages("devtools")
+install.packages("Rcpp")
 ```
-With the package installed, you can now download the Blackjack.RMD file from the project GitHub page which acts as a complete exhibit of the packages functionality. The first cell loads in the packages which you previously installed making their functions usable to you. Some notes on the functionality of the packagae. The package when possible runs code in parallel, running code quickly but in all cases a single core option also exists. Crucially, you cannot pass variables to the parallel version. The arguments must be explicit.
+With the package installed, you can now download the Blackjack_Investigations.RMD file from the project GitHub page which acts as a complete exhibit of the package's functionality. When you first open the document, a prompt will appear at the top of the notebook asking to install the required packages. Hit `install` to initiate this process as these packages enable the graphs used in the investigations. 
 
+You are now able to use all the functionality of the package. First, type the following line into the console which lists all of the functions in the package:
+```R
+lsf.str("package:blackjackr")   
+```
+To learn more about a function, type `?` followed by a function name to read extensive documentation for each included function. All simulation functions use parallel computing to speed up the simulation process. If you wish to use only a single core to maintain your computer's performance, pass the `cores = 1` argument to the relevant functions. 
 
-
-
-
-The first function of interest is strategy. This function takes as argument `number_of_decks`, `number_of_simulations`, `include_double_down ` and `include_surrender`. `number_of_decks` is the number of decks in the game for which you want to obtain a strategy. `number_of_simulations` is the number of Monte Carlo simulations used on each position to approximate the win rate for sticking on that position. The reamining arguments are whether to include a particular rule in the analysis of the data where the default is that surrender and double down are not permitted. For example, 2 deck blackjack with $10^3$ simulations per position with doubling down allowed and surrendering prohibited is obtained by:
+While I recommend going through the .RMD file sequentially to learn about the package, I will now describe how to use the packages main functions. The first function of interest is strategy. This function takes as argument `number_of_decks`, `number_of_simulations`, `include_double_down ` and `include_surrender`. `number_of_decks` is the number of decks in the game for which you want to obtain a strategy. `number_of_simulations` is the number of Monte Carlo simulations used on each position to approximate the win rate for sticking on that position. The reamining arguments are whether to include a particular rule in the analysis of the data where the default is that surrender and double down are not permitted. For example, 2 deck blackjack with $10^3$ simulations per position with doubling down allowed and surrendering prohibited is obtained by:
 
 ```R
 strat = full_strategy_par(number_of_decks = 1, blackjack_return = 1.5,  number_of_simulations = 10^3, include_double_down  = T)
